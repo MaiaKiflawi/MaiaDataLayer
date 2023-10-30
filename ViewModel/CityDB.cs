@@ -14,6 +14,7 @@ namespace ViewModel
         {
             return new City();
         }
+
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
             City city = entity as City;
@@ -24,12 +25,14 @@ namespace ViewModel
             city.CountryName = countryDB.SelectById(countryId);
             return city;
         }
+
         public CityList SelectAll()
         {
             command.CommandText = "SELECT * FROM tbCity";
             CityList list = new CityList(ExecuteCommand());
             return list;
         }
+
         public City SelectById(int id)
         {
             command.CommandText = "SELECT * FROM tbCity WHERE id=" + id;
