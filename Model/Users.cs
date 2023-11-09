@@ -18,6 +18,7 @@ namespace Model
         protected string email;
         protected bool isManager;
         protected string password;
+        protected bool isGroudAdmin;
 
         public string UserName 
         {
@@ -70,6 +71,11 @@ namespace Model
             set { this.password = value; }
         }
 
+        public bool IsGroupAdmin 
+        {
+            get { return isGroudAdmin; }
+            set { isGroudAdmin = value; }
+        }
     }
 
     public class UsersList : List<Users>

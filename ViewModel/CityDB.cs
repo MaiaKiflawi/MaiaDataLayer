@@ -28,14 +28,14 @@ namespace ViewModel
 
         public CityList SelectAll()
         {
-            command.CommandText = "SELECT * FROM tbCity";
+            command.CommandText = "SELECT * FROM tblCity";
             CityList list = new CityList(ExecuteCommand());
             return list;
         }
 
         public City SelectById(int id)
         {
-            command.CommandText = "SELECT * FROM tbCity WHERE id=" + id;
+            command.CommandText = "SELECT * FROM tblCity WHERE id=" + id;
             CityList list = new CityList(ExecuteCommand());
             if (list.Count == 0)
                 return null;

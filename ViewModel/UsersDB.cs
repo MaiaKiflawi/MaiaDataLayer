@@ -26,6 +26,8 @@ namespace ViewModel
             user.Phone = reader["phone"].ToString();
             user.Email = reader["email"].ToString();
             user.IsManager = bool.Parse(reader["isManager"].ToString());
+            user.Password = reader["password"].ToString();
+            user.IsGroupAdmin = bool.Parse(reader["isGroupAdmin"].ToString());
             CityDB cityDB = new CityDB();
             int cityId = int.Parse(reader["cityName"].ToString());
             user.CityName = cityDB.SelectById(cityId);
@@ -34,17 +36,26 @@ namespace ViewModel
 
         public UsersList SelectAll()
         {
-            command.CommandText = "SELECT * FROM tbCity";
+            command.CommandText = "SELECT * FROM tblUsers";
             UsersList list = new UsersList(ExecuteCommand());
             return list;
         }
         public Users SelectById(int id)
         {
-            command.CommandText = "SELECT * FROM tbCity WHERE id=" + id;
+            command.CommandText = "SELECT * FROM tblUsers WHERE id=" + id;
             UsersList list = new UsersList(ExecuteCommand());
             if (list.Count == 0)
                 return null;
             return list[0];
+        }
+
+        public UsersList SelectByGroup(Groups group)
+        {
+            command.CommandText = "SELECT tblUsers.* " +
+                "FROM (tblUsersGroups INNER JOIN tblUsers ON tblUsersGroups.UserID = tblUsers.ID) " +
+                $"WHERE (tblUsersGroups.GroupID = {group.Id})";
+            UsersList list = new UsersList(ExecuteCommand());
+            return list;
         }
     }
 }
