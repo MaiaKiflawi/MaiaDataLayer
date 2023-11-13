@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Model.Event;
 
 namespace ViewModel
 {
@@ -54,6 +55,15 @@ namespace ViewModel
             command.CommandText = "SELECT tblUsers.* " +
                 "FROM (tblUsersGroups INNER JOIN tblUsers ON tblUsersGroups.UserID = tblUsers.ID) " +
                 $"WHERE (tblUsersGroups.GroupID = {group.Id})";
+            UsersList list = new UsersList(ExecuteCommand());
+            return list;
+        }
+
+        public UsersList SelectByEvent(Event events)
+        {
+            command.CommandText = "SELECT tblUsers.* " +
+                "FROM (tblUsersEvents INNER JOIN tblUsers ON tblUsersEvents.UserID = tblUsers.ID) " +
+                $"WHERE (tblUsersEvents.EventID = {events.Id})";
             UsersList list = new UsersList(ExecuteCommand());
             return list;
         }

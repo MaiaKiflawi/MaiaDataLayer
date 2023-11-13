@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Model.Event;
 
 namespace ViewModel
 {
@@ -40,5 +41,15 @@ namespace ViewModel
                 return null;
             return list[0];
         }
+
+        public GroupsList SelectByUser(Users user)
+        {
+            command.CommandText = "SELECT tblGroups.* " +
+                "FROM (tblUsersGroups INNER JOIN tblGroups ON tblUsersGroups.GroupID = tblGroups.ID) " +
+                $"WHERE (tblUsersGroups.UserID = {user.Id})";
+            GroupsList list = new GroupsList(ExecuteCommand());
+            return list;
+        }
+
     }
 }
