@@ -11,7 +11,7 @@ namespace Model
         protected DateTime eventStart;
         protected DateTime eventEnd;
         protected string eventName;
-        protected Groups groupOfEvent;
+        protected Groups eventGroup;
 
         public DateTime EventStart 
         {
@@ -25,16 +25,16 @@ namespace Model
             set { eventEnd = value; }
         }
 
-        public string EventNAme
+        public string EventName
         {
             get { return eventName; }
             set { eventName = value; }
         }
 
-        public Groups GroupOfEvent
+        public Groups EventGroup
         {
-            get { return groupOfEvent; }
-            set { groupOfEvent = value; }
+            get { return eventGroup; }
+            set { eventGroup = value; }
         }
 
         public class EventList : List<Event>

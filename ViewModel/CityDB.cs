@@ -41,5 +41,33 @@ namespace ViewModel
                 return null;
             return list[0];
         }
+
+        protected override void LoadParameters(BaseEntity entity)
+        {
+            City city = entity as City;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@ID", city.Id);
+            command.Parameters.AddWithValue("@cityName", city.CityName);
+            command.Parameters.AddWithValue("@countryName", city.CountryName.Id);
+        }
+
+        public int Insert(City city)
+        {
+            command.CommandText = "INSERT INTO tblCity (cityName,countryName) VALUES (@cityName,@countryName)";
+            LoadParameters(city);
+            return ExecuteCRUD();
+        }
+        public int Update(City city)
+        {
+            command.CommandText = "UPDATE tblCity SET cityName = @cityName, countryName = @countryName WHERE ID = @ID";
+            LoadParameters(city);
+            return ExecuteCRUD();
+        }
+        public int Delete(City city)
+        {
+            command.CommandText = "DELETE FROM tblCity WHERE ID = @ID";
+            LoadParameters(city);
+            return ExecuteCRUD();
+        }
     }
 }

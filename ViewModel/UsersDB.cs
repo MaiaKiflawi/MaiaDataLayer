@@ -67,5 +67,48 @@ namespace ViewModel
             UsersList list = new UsersList(ExecuteCommand());
             return list;
         }
+
+        protected override void LoadParameters(BaseEntity entity)
+        {
+            Users user = entity as Users;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@ID", user.Id);
+            command.Parameters.AddWithValue("@userName", user.UserName);
+            command.Parameters.AddWithValue("@firstName", user.FirstName);
+            command.Parameters.AddWithValue("@lastNAme", user.LastName);
+            command.Parameters.AddWithValue("@bDate", user.BDate);
+            command.Parameters.AddWithValue("@gender", user.Gender);
+            command.Parameters.AddWithValue("@phone", user.Phone);
+            command.Parameters.AddWithValue("@email", user.Email);
+            command.Parameters.AddWithValue("@isManager", user.IsManager);
+            command.Parameters.AddWithValue("@cityName", user.CityName.Id);
+            command.Parameters.AddWithValue("@isGroupAdmin", user.IsGroupAdmin);
+            command.Parameters.AddWithValue("@password", user.Password);
+        }
+
+        public int Insert(Users user)
+        {
+            command.CommandText = "INSERT INTO tblUsers " +
+                "(userName, firstName, lastName, bDate, gender, phone, email, isManager, cityName, isGroupAdmin, password) " +
+                "VALUES (@userName,@firstName,@lastName,@bDate,@gender,@phone,@email," +
+                "@isManager,@cityName,@isGroupAdmin,@password)";
+            LoadParameters(user);
+            return ExecuteCRUD();
+        }
+        public int Update(Users user)
+        {
+            command.CommandText = "UPDATE tblUsers SET " +
+                "userName = @userName, firstName = @firstName, lastName = @lastName, " +
+                "gender = @gender, phone = @phone, email = @email, cityName = @cityName " +
+                "WHERE ID = @ID";
+            LoadParameters(user);
+            return ExecuteCRUD();
+        }
+        public int Delete(Users user)
+        {
+            command.CommandText = "DELETE FROM tblUsers WHERE ID = @ID";
+            LoadParameters(user);
+            return ExecuteCRUD();
+        }
     }
 }

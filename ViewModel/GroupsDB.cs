@@ -51,5 +51,32 @@ namespace ViewModel
             return list;
         }
 
+        protected override void LoadParameters(BaseEntity entity)
+        {
+            Groups group = entity as Groups;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@ID", group.Id);
+            command.Parameters.AddWithValue("@groupName", group.GroupName);
+            command.Parameters.AddWithValue("@groupDescription", group.GroupDescription);
+        }
+
+        public int Insert(Groups group)
+        {
+            command.CommandText = "INSERT INTO tblGroups (groupName, groupDescription) VALUES (@groupName, @groupDescription)";
+            LoadParameters(group);
+            return ExecuteCRUD();
+        }
+        public int Update(Groups group)
+        {
+            command.CommandText = "UPDATE tblGroups SET groupName = @groupName, groupDescription = @groupDescription";
+            LoadParameters(group);
+            return ExecuteCRUD();
+        }
+        public int Delete(Groups group)
+        {
+            command.CommandText = "DELETE FROM tblGroups WHERE ID = @ID";
+            LoadParameters(group);
+            return ExecuteCRUD();
+        }
     }
 }

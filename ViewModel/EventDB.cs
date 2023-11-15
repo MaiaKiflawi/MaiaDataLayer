@@ -19,12 +19,12 @@ namespace ViewModel
         {
             Event events = entity as Event;
             events.Id = int.Parse(reader["ID"].ToString());
-            events.EventEnd = DateTime.Parse(reader["start"].ToString());
-            events.EventStart = DateTime.Parse(reader["end"].ToString());
-            events.EventNAme = reader["eventName"].ToString();
+            events.EventEnd = DateTime.Parse(reader["eventStart"].ToString());
+            events.EventStart = DateTime.Parse(reader["eventEnd"].ToString());
+            events.EventName = reader["eventName"].ToString();
             GroupsDB groupDB = new GroupsDB();
             int groupId = int.Parse(reader["groupName"].ToString());
-            events.GroupOfEvent = groupDB.SelectById(groupId);
+            events.EventGroup = groupDB.SelectById(groupId);
             return events;
         }
 
@@ -51,6 +51,40 @@ namespace ViewModel
                 $"WHERE (tblUsersEvents.UserID = {user.Id})";
             EventList list = new EventList(ExecuteCommand());
             return list;
+        }
+
+        protected override void LoadParameters(BaseEntity entity)
+        {
+            Event events = entity as Event;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@ID", events.Id);
+            command.Parameters.AddWithValue("@eventStart", events.EventStart);
+            command.Parameters.AddWithValue("@eventEnd", events.EventEnd);
+            command.Parameters.AddWithValue("@eventName", events.EventName);
+            command.Parameters.AddWithValue("@eventGroup", events.EventGroup);
+        }
+        
+        public int Insert(Event events)
+        {
+            command.CommandText = "INSERT INTO tblEvent " +
+                "(eventStart, eventEnd, eventName, eventGroup) " +
+                "VALUES (@eventStart,@eventEnd,@eventName,@eventGroup)";
+            LoadParameters(events);
+            return ExecuteCRUD();
+        }
+        public int Update(Event events)
+        {
+            command.CommandText = "UPDATE tblEvent SET " +
+                "eventStart = @eventStart, eventEnd = @eventEnd, eventName = @eventName" +
+                "WHERE ID = @ID";
+            LoadParameters(events);
+            return ExecuteCRUD();
+        }
+        public int Delete(Event events)
+        {
+            command.CommandText = "DELETE FROM tblEvent WHERE ID = @ID";
+            LoadParameters(events);
+            return ExecuteCRUD();
         }
     }
 }
