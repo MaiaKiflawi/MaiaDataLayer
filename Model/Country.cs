@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
+    [DataContract]
     public class Country: BaseEntity
     {
         protected string countryName;
-
+        [DataMember]
         public string CountryName
         {
             get { return this.countryName; }
             set { this.countryName = value; }
         }
     }
-
+    
+    [CollectionDataContract]
     public class CountryList : List<Country>
     {
         //בנאי ברירת מחדל - אוסף ריק
