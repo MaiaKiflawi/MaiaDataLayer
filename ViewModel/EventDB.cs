@@ -8,7 +8,7 @@ using static Model.Event;
 
 namespace ViewModel
 {
-    internal class EventDB : BaseDB
+    public class EventDB : BaseDB
     {
         protected override BaseEntity NewEntity()
         {

@@ -8,7 +8,7 @@ using static Model.Event;
 
 namespace ViewModel
 {
-    internal class GroupsDB : BaseDB
+    public class GroupsDB : BaseDB
     {
         protected override BaseEntity CreateModel(BaseEntity entity)
         {

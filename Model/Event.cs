@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace Model
 {
     [DataContract]
-    public class Event: BaseEntity
+    public class Event : BaseEntity
     {
         protected DateTime eventStart;
         protected DateTime eventEnd;
         protected string eventName;
         protected Groups eventGroup;
         [DataMember]
-        public DateTime EventStart 
+        public DateTime EventStart
         {
             get { return eventStart; }
             set { eventStart = value; }
@@ -38,16 +38,16 @@ namespace Model
             get { return eventGroup; }
             set { eventGroup = value; }
         }
-        [CollectionDataContract]
-        public class EventList : List<Event>
-        {
-            //בנאי ברירת מחדל - אוסף ריק
-            public EventList() { }
-            //המרה אוסף גנרי לרשימת משתמשים
-            public EventList(IEnumerable<Event> list) : base(list) { }
-            //המרה מטה מטיפוס בסיס לרשימת משתמשים
-            public EventList(IEnumerable<BaseEntity> list)
-                : base(list.Cast<Event>().ToList()) { }
-        }
+    }
+    [CollectionDataContract]
+    public class EventList : List<Event>
+    {
+        //בנאי ברירת מחדל - אוסף ריק
+        public EventList() { }
+        //המרה אוסף גנרי לרשימת משתמשים
+        public EventList(IEnumerable<Event> list) : base(list) { }
+        //המרה מטה מטיפוס בסיס לרשימת משתמשים
+        public EventList(IEnumerable<BaseEntity> list)
+            : base(list.Cast<Event>().ToList()) { }
     }
 }

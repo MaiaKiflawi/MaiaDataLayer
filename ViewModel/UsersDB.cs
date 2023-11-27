@@ -98,7 +98,7 @@ namespace ViewModel
         public int Update(Users user)
         {
             command.CommandText = "UPDATE tblUsers SET " +
-                "userName = @userName, firstName = @firstName, lastName = @lastName, " +
+                "userName = @userName, password = @password, firstName = @firstName, lastName = @lastName, " +
                 "gender = @gender, phone = @phone, email = @email, cityName = @cityName " +
                 "WHERE ID = @ID";
             LoadParameters(user);
@@ -109,6 +109,16 @@ namespace ViewModel
             command.CommandText = "DELETE FROM tblUsers WHERE ID = @ID";
             LoadParameters(user);
             return ExecuteCRUD();
+        }
+
+        public Users LogIn(Users user)
+        {
+            command.CommandText = "SELECT * FROM tblUsers WHERE userName = @userName, password = @password";
+            LoadParameters(user);
+            UsersList list = new UsersList(base.ExecuteCommand());
+            if (list.Count == 1)
+                return list[0];
+            return null;
         }
     }
 }
