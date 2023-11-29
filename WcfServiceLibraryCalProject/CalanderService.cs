@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Model;
 using ViewModel;
 
-namespace WcfServiceLibraryCalProject
+namespace ServiceModel
 {
     public class CalanderService : ICalanderService
     {

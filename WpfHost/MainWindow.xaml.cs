@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ServiceModel;
-using WcfServiceLibraryCalProject;
+using ServiceModel;
 using Model;
 using ViewModel;
 

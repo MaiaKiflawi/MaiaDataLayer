@@ -9,7 +9,7 @@ using Model;
 using ViewModel;
 
 
-namespace WcfServiceLibraryCalProject
+namespace ServiceModel
 {
     [ServiceContract]
     internal interface ICalanderService

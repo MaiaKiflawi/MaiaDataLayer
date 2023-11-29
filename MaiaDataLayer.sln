@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{611176B5-8CF6-4126-B38F-C773BEDF197F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceLibraryCalProject", "WcfServiceLibraryCalProject\WcfServiceLibraryCalProject.csproj", "{F12918B7-196E-455C-9658-F2EAC27466B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceModel", "WcfServiceLibraryCalProject\ServiceModel.csproj", "{F12918B7-196E-455C-9658-F2EAC27466B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfHost", "WpfHost\WpfHost.csproj", "{8258B207-0535-4CAB-9E86-61221CD34903}"
 EndProject

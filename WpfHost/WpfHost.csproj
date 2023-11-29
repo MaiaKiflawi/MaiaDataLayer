@@ -104,9 +104,9 @@
       <Project>{611176b5-8cf6-4126-b38f-c773bedf197f}</Project>
       <Name>ViewModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WcfServiceLibraryCalProject\WcfServiceLibraryCalProject.csproj">
+    <ProjectReference Include="..\WcfServiceLibraryCalProject\ServiceModel.csproj">
       <Project>{f12918b7-196e-455c-9658-f2eac27466b5}</Project>
-      <Name>WcfServiceLibraryCalProject</Name>
+      <Name>ServiceModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
