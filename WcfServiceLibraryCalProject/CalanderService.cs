@@ -54,49 +54,42 @@ namespace ServiceModel
             CountryList list = db.SelectAll();
             return list;
         }
-
         public EventList GetAllEvents()
         {
             EventDB db = new EventDB();
             EventList list = db.SelectAll();
             return list;
         }
-
         public GroupsList GetAllGroups()
         {
             GroupsDB db = new GroupsDB();
             GroupsList list = db.SelectAll();
             return list;
         }
-
         public UsersList GetAllUsers()
         {
             UsersDB db = new UsersDB();
             UsersList list = db.SelectAll();
             return list;
         }
-
         public EventList GetEventsByUser(Users user)
         {
             EventDB db = new EventDB();
             EventList list = db.SelectByUser(user);
             return list;
         }
-
         public GroupsList GetGroupsByUser(Users user)
         {
             GroupsDB db = new GroupsDB();
             GroupsList list = db.SelectByUser(user);
             return list;
         }
-
         public UsersList GetUsersByEvent(Event events)
         {
             UsersDB db = new UsersDB();
             UsersList list = db.SelectByEvent(events);
             return list;
         }
-
         public UsersList GetUsersByGroup(Groups group)
         {
             UsersDB db = new UsersDB();
