@@ -162,5 +162,12 @@ namespace ServiceModel
             UsersDB db = new UsersDB();
             return db.Update(user);
         }
+
+        public bool IsUsernameFree(string username)
+        {
+            UsersDB db = new UsersDB();
+            UsersList list = db.CheckUserName(username);
+            return list.Count == 0;
+        }
     }
 }

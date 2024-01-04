@@ -120,5 +120,12 @@ namespace ViewModel
                 return list[0];
             return null;
         }
+
+        public UsersList CheckUserName(string userName)
+        {
+            command.CommandText = "SELECT * FROM tblUsers WHERE (userName = @userName)";
+            UsersList list = new UsersList(base.ExecuteCommand());
+            return list;
+        }
     }
 }
