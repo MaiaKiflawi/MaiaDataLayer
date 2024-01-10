@@ -8,17 +8,10 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ViewModel.CityDB">
-    <Position X="4" Y="5" Width="1.5" />
+    <Position X="5.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
       <FileName>CityDB.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ViewModel.CountryDB">
-    <Position X="6" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
-      <FileName>CountryDB.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ViewModel.EventDB">
@@ -38,7 +31,7 @@
   <Class Name="ViewModel.UsersDB">
     <Position X="12" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAEAAACAAAAQAAAAAAAAAAgEAABAAEAAAAAACEAA=</HashCode>
+      <HashCode>AAQAAEAAACAAAAQCAAAAAAAAAgEAABAAEAAAAAACEAA=</HashCode>
       <FileName>UsersDB.cs</FileName>
     </TypeIdentifier>
   </Class>

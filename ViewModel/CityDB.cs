@@ -20,9 +20,7 @@ namespace ViewModel
             City city = entity as City;
             city.Id = int.Parse(reader["ID"].ToString());
             city.CityName = reader["cityName"].ToString();
-            CountryDB countryDB = new CountryDB();
-            int countryId = int.Parse(reader["countryName"].ToString());
-            city.CountryName = countryDB.SelectById(countryId);
+            
             return city;
         }
 
@@ -48,7 +46,6 @@ namespace ViewModel
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@ID", city.Id);
             command.Parameters.AddWithValue("@cityName", city.CityName);
-            command.Parameters.AddWithValue("@countryName", city.CountryName.Id);
         }
 
         public int Insert(City city)

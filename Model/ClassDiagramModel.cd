@@ -8,37 +8,20 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Model.City">
-    <Position X="2.75" Y="2.5" Width="1.5" />
+    <Position X="5.5" Y="2.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>IAAgACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>City.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.CityList">
-    <Position X="2.75" Y="1" Width="1.5" />
+    <Position X="5.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>City.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Country">
-    <Position X="5.25" Y="2.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>IAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Country.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.CountryList">
-    <Position X="5.25" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Country.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.Event">

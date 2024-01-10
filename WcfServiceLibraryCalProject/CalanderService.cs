@@ -17,12 +17,6 @@ namespace ServiceModel
             return db.Delete(city);
         }
 
-        public int DeleteCountry(Country country)
-        {
-            CountryDB db = new CountryDB();
-            return db.Delete(country);
-        }
-
         public int DeleteEvent(Event events)
         {
             EventDB db = new EventDB();
@@ -47,13 +41,7 @@ namespace ServiceModel
             CityList list = db.SelectAll();
             return list;
         }
-
-        public CountryList GetAllCoutries()
-        {
-            CountryDB db = new CountryDB();
-            CountryList list = db.SelectAll();
-            return list;
-        }
+       
         public EventList GetAllEvents()
         {
             EventDB db = new EventDB();
@@ -103,12 +91,6 @@ namespace ServiceModel
             return db.Insert(city);
         }
 
-        public int InsertCountry(Country country)
-        {
-            CountryDB db = new CountryDB();
-            return db.Insert(country);
-        }
-
         public int InsertEvent(Event events)
         {
             EventDB db = new EventDB();
@@ -137,12 +119,6 @@ namespace ServiceModel
         {
             CityDB db = new CityDB();
             return db.Update(city);
-        }
-
-        public int UpdateCountry(Country country)
-        {
-            CountryDB db = new CountryDB();
-            return db.Update(country);
         }
 
         public int UpdateEvent(Event events)

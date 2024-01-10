@@ -81,7 +81,8 @@ namespace ViewModel
             command.Parameters.AddWithValue("@phone", user.Phone);
             command.Parameters.AddWithValue("@email", user.Email);
             command.Parameters.AddWithValue("@isManager", user.IsManager);
-            command.Parameters.AddWithValue("@cityName", user.CityName.Id);
+            if(user.CityName!=null)
+                 command.Parameters.AddWithValue("@cityName", user.CityName.Id);
             command.Parameters.AddWithValue("@isGroupAdmin", user.IsGroupAdmin);
             command.Parameters.AddWithValue("@password", user.Password);
         }
@@ -89,7 +90,7 @@ namespace ViewModel
         public int Insert(Users user)
         {
             command.CommandText = "INSERT INTO tblUsers " +
-                "(userName, firstName, lastName, bDate, gender, phone, email, isManager, cityName, isGroupAdmin, password) " +
+                "(userName, firstName, lastName, bDate, gender, phone, email, isManager, cityName, isGroupAdmin, [password]) " +
                 "VALUES (@userName,@firstName,@lastName,@bDate,@gender,@phone,@email," +
                 "@isManager,@cityName,@isGroupAdmin,@password)";
             LoadParameters(user);
@@ -98,7 +99,7 @@ namespace ViewModel
         public int Update(Users user)
         {
             command.CommandText = "UPDATE tblUsers SET " +
-                "userName = @userName, password = @password, firstName = @firstName, lastName = @lastName, " +
+                "userName = @userName, [password] = @password, firstName = @firstName, lastName = @lastName, " +
                 "gender = @gender, phone = @phone, email = @email, cityName = @cityName " +
                 "WHERE ID = @ID";
             LoadParameters(user);
@@ -113,8 +114,7 @@ namespace ViewModel
 
         public Users LogIn(Users user)
         {
-            command.CommandText = "SELECT * FROM tblUsers WHERE userName = @userName, password = @password";
-            LoadParameters(user);
+            command.CommandText = $"SELECT * FROM tblUsers WHERE userName ='{user.UserName}' AND [password] = '{user.Password}'";
             UsersList list = new UsersList(base.ExecuteCommand());
             if (list.Count == 1)
                 return list[0];
@@ -123,7 +123,7 @@ namespace ViewModel
 
         public UsersList CheckUserName(string userName)
         {
-            command.CommandText = "SELECT * FROM tblUsers WHERE (userName = @userName)";
+            command.CommandText = $"SELECT * FROM tblUsers WHERE (userName = {userName})";
             UsersList list = new UsersList(base.ExecuteCommand());
             return list;
         }

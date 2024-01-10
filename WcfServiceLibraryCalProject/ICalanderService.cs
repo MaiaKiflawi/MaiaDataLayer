@@ -19,11 +19,6 @@ namespace ServiceModel
         [OperationContract] int UpdateCity(City city);
         [OperationContract] int DeleteCity(City city);
 
-        [OperationContract] CountryList GetAllCoutries();
-        [OperationContract] int InsertCountry(Country country);
-        [OperationContract] int UpdateCountry(Country country);
-        [OperationContract] int DeleteCountry(Country country);
-
         [OperationContract] EventList GetAllEvents();
         [OperationContract] int InsertEvent(Event events);
         [OperationContract] int UpdateEvent(Event events);
@@ -43,5 +38,6 @@ namespace ServiceModel
         [OperationContract] UsersList GetUsersByGroup(Groups group);
         [OperationContract] UsersList GetUsersByEvent(Event events);
         [OperationContract] Users Login(Users user);
+        [OperationContract] bool IsUsernameFree(string username);
     }
 }

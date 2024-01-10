@@ -12,13 +12,6 @@ namespace Model
     public class City: BaseEntity
     {
         protected string cityName;
-        protected Country countryName;
-        [DataMember]
-        public Country CountryName
-        {
-            get { return this.countryName; }
-            set { this.countryName = value; }
-        }
         [DataMember]
         public string CityName
         {

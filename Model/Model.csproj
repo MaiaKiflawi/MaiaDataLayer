@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="City.cs" />
-    <Compile Include="Country.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Groups.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
