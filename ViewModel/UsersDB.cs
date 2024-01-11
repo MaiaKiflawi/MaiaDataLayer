@@ -72,7 +72,6 @@ namespace ViewModel
         {
             Users user = entity as Users;
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@ID", user.Id);
             command.Parameters.AddWithValue("@userName", user.UserName);
             command.Parameters.AddWithValue("@firstName", user.FirstName);
             command.Parameters.AddWithValue("@lastNAme", user.LastName);
@@ -85,6 +84,7 @@ namespace ViewModel
                  command.Parameters.AddWithValue("@cityName", user.CityName.Id);
             command.Parameters.AddWithValue("@isGroupAdmin", user.IsGroupAdmin);
             command.Parameters.AddWithValue("@password", user.Password);
+            command.Parameters.AddWithValue("@ID", user.Id);
         }
 
         public int Insert(Users user)
@@ -123,7 +123,7 @@ namespace ViewModel
 
         public UsersList CheckUserName(string userName)
         {
-            command.CommandText = $"SELECT * FROM tblUsers WHERE (userName = {userName})";
+            command.CommandText = $"SELECT * FROM tblUsers WHERE (userName = '{userName}')";
             UsersList list = new UsersList(base.ExecuteCommand());
             return list;
         }

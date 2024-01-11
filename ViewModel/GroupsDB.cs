@@ -15,8 +15,8 @@ namespace ViewModel
             Groups group = entity as Groups;
             group.GroupName = reader["groupName"].ToString();
             group.GroupDescription = reader["groupDescription"].ToString();
-
             UsersDB usersDB = new UsersDB();
+            group.GroupAdmin = usersDB.SelectById(int.Parse(reader["groupAdmin"].ToString()));           
             group.Users = usersDB.SelectByGroup(group);
 
             return group;
@@ -55,20 +55,24 @@ namespace ViewModel
         {
             Groups group = entity as Groups;
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@ID", group.Id);
             command.Parameters.AddWithValue("@groupName", group.GroupName);
             command.Parameters.AddWithValue("@groupDescription", group.GroupDescription);
+            command.Parameters.AddWithValue("@groupAdmin", group.GroupAdmin);
+
+            command.Parameters.AddWithValue("@ID", group.Id);
         }
 
         public int Insert(Groups group)
         {
-            command.CommandText = "INSERT INTO tblGroups (groupName, groupDescription) VALUES (@groupName, @groupDescription)";
+            command.CommandText = "INSERT INTO tblGroups (groupName, groupDescription, groupAdmin)" +
+                " VALUES (@groupName, @groupDescription, @groupAdmin)";
             LoadParameters(group);
             return ExecuteCRUD();
         }
         public int Update(Groups group)
         {
-            command.CommandText = "UPDATE tblGroups SET groupName = @groupName, groupDescription = @groupDescription";
+            command.CommandText = "UPDATE tblGroups SET groupName = @groupName, groupDescription = @groupDescription," +
+                "groupAdmin = @groupAdmin WHERE ID = @ID";
             LoadParameters(group);
             return ExecuteCRUD();
         }

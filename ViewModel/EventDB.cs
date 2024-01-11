@@ -57,11 +57,11 @@ namespace ViewModel
         {
             Event events = entity as Event;
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@ID", events.Id);
             command.Parameters.AddWithValue("@eventStart", events.EventStart);
             command.Parameters.AddWithValue("@eventEnd", events.EventEnd);
             command.Parameters.AddWithValue("@eventName", events.EventName);
             command.Parameters.AddWithValue("@eventGroup", events.EventGroup);
+            command.Parameters.AddWithValue("@ID", events.Id);
         }
         
         public int Insert(Event events)

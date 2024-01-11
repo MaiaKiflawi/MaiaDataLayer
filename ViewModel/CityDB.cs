@@ -44,8 +44,8 @@ namespace ViewModel
         {
             City city = entity as City;
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@ID", city.Id);
             command.Parameters.AddWithValue("@cityName", city.CityName);
+            command.Parameters.AddWithValue("@ID", city.Id);
         }
 
         public int Insert(City city)

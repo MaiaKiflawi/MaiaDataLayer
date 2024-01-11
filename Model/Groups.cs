@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -13,6 +14,7 @@ namespace Model
         protected string groupName;
         protected string groupDescription;
         protected UsersList users;
+        protected Users groupAdmin;
         [DataMember]
         public string GroupName 
         {
@@ -30,6 +32,12 @@ namespace Model
         {
             get { return users; }
             set { users = value; }
+        }
+        [DataMember]
+        public Users GroupAdmin
+        {
+            get { return groupAdmin; }
+            set { groupAdmin = value; }
         }
     }
     [CollectionDataContract]
