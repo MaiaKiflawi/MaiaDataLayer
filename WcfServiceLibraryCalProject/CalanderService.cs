@@ -145,5 +145,12 @@ namespace ServiceModel
             UsersList list = db.CheckUserName(username);
             return list.Count == 0;
         }
+
+        public bool IsGroupNameFree(string groupName)
+        {
+            GroupsDB db = new GroupsDB();
+            Groups group = db.IsGroupName(groupName);
+            return group==null;
+        }
     }
 }

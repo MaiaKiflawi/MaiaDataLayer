@@ -35,7 +35,15 @@ namespace ViewModel
         }
         public Groups SelectById(int id)
         {
-            command.CommandText = "SELECT * FROM tblCity WHERE id=" + id;
+            command.CommandText = "SELECT * FROM tblGroups WHERE id=" + id;
+            GroupsList list = new GroupsList(ExecuteCommand());
+            if (list.Count == 0)
+                return null;
+            return list[0];
+        }
+        public Groups IsGroupName(string name)
+        {
+            command.CommandText = $"SELECT * FROM tblGroups WHERE groupName='{name}'";
             GroupsList list = new GroupsList(ExecuteCommand());
             if (list.Count == 0)
                 return null;
@@ -57,7 +65,7 @@ namespace ViewModel
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@groupName", group.GroupName);
             command.Parameters.AddWithValue("@groupDescription", group.GroupDescription);
-            command.Parameters.AddWithValue("@groupAdmin", group.GroupAdmin);
+            command.Parameters.AddWithValue("@groupAdmin", group.GroupAdmin.Id);
 
             command.Parameters.AddWithValue("@ID", group.Id);
         }
