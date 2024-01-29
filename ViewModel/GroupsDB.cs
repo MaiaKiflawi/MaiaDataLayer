@@ -18,7 +18,6 @@ namespace ViewModel
             UsersDB usersDB = new UsersDB();
             group.GroupAdmin = usersDB.SelectById(int.Parse(reader["groupAdmin"].ToString()));           
             group.Users = usersDB.SelectByGroup(group);
-
             return group;
         }
 

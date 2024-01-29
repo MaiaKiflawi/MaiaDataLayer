@@ -39,6 +39,7 @@ namespace Model
             get { return groupAdmin; }
             set { groupAdmin = value; }
         }
+
     }
     [CollectionDataContract]
     public class GroupsList : List<Groups>
