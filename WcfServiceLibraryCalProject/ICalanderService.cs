@@ -40,5 +40,7 @@ namespace ServiceModel
         [OperationContract] UsersList GetUsersByEvent(Event events);
         [OperationContract] Users Login(Users user);
         [OperationContract] bool IsUsernameFree(string username);
+        [OperationContract] int InsertUserToGroup(Users user, Groups group);
+        [OperationContract] int DeleteUserToGroup(Users user, Groups group);
     }
 }

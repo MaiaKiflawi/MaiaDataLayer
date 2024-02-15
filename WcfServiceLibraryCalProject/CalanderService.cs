@@ -152,5 +152,17 @@ namespace ServiceModel
             Groups group = db.IsGroupName(groupName);
             return group==null;
         }
+
+        public int InsertUserToGroup(Users user, Groups group)
+        {
+            UsersDB db = new UsersDB();
+            return db.InsertUserToUGtbl(user, group);
+        }
+
+        public int DeleteUserToGroup(Users user, Groups group)
+        {
+            UsersDB db = new UsersDB();
+            return db.DeleteUserToUGtbl(user, group);
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace ViewModel
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
             Groups group = entity as Groups;
+            group.Id =int.Parse( reader["ID"].ToString());
             group.GroupName = reader["groupName"].ToString();
             group.GroupDescription = reader["groupDescription"].ToString();
             UsersDB usersDB = new UsersDB();
