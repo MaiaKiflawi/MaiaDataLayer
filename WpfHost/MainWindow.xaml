@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="200" Width="200">
     <Grid>
-        <TextBlock Text="Calander Service Open" TextWrapping="WrapWithOverflow" FontSize="40"/>
+        <TextBlock Text="Calendar Service Open" TextWrapping="WrapWithOverflow" FontSize="40"/>
     </Grid>
 </Window>
