@@ -66,6 +66,12 @@ namespace ServiceModel
             EventList list = db.SelectByUser(user);
             return list;
         }
+        public EventList GetEventsByGroup(Groups group)
+        {
+            EventDB db = new EventDB();
+            EventList list = db.SelectByGroup(group);
+            return list;
+        }
         public GroupsList GetGroupsByUser(Users user)
         {
             GroupsDB db = new GroupsDB();

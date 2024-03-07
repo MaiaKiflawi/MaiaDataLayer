@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static Model.Event;
@@ -23,7 +24,7 @@ namespace ViewModel
             events.EventStart = DateTime.Parse(reader["eventEnd"].ToString());
             events.EventName = reader["eventName"].ToString();
             GroupsDB groupDB = new GroupsDB();
-            int groupId = int.Parse(reader["groupName"].ToString());
+            int groupId = int.Parse(reader["eventGroup"].ToString());
             events.EventGroup = groupDB.SelectById(groupId);
             return events;
         }
@@ -49,6 +50,13 @@ namespace ViewModel
             command.CommandText = "SELECT tblEvent.* " +
                 "FROM (tblUsersEvents INNER JOIN tblEvent ON tblUsersEvents.EventID = tblEvent.ID) " +
                 $"WHERE (tblUsersEvents.UserID = {user.Id})";
+            EventList list = new EventList(ExecuteCommand());
+            return list;
+        }
+        public EventList SelectByGroup(Groups group)
+        {
+            command.CommandText = "SELECT * " +
+                $"FROM tblEvent WHERE (eventGroup = {group.Id})";
             EventList list = new EventList(ExecuteCommand());
             return list;
         }
