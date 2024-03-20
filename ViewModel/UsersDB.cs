@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,5 +141,16 @@ namespace ViewModel
             return ExecuteCRUD();
         }
 
+        public int InsertUserToUEtbl(Users user, Event events)
+        {
+            command.CommandText = $"INSERT INTO tblUsersEvents (UserID, EventID) VALUES ({user.Id},{events.Id})";
+            return ExecuteCRUD();
+        }
+
+        public int DeleteUserToUEtbl(Users user, Event events)
+        {
+            command.CommandText = $"DELETE FROM tblUsersEvents WHERE (tblUsersEvents.UserID = {user.Id}) AND (tblUsersEvents.EventID = {events.Id})";
+            return ExecuteCRUD();
+        }
     }
 }

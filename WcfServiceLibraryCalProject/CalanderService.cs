@@ -170,5 +170,17 @@ namespace ServiceModel
             UsersDB db = new UsersDB();
             return db.DeleteUserToUGtbl(user, group);
         }
+
+        public int InsertUserToEvent(Users user, Event events)
+        {
+            UsersDB dB = new UsersDB();
+            return dB.InsertUserToUEtbl(user, events);
+        }
+
+        public int DeleteUserToEvent(Users user, Event events)
+        {
+            UsersDB dB = new UsersDB();
+            return dB.DeleteUserToUEtbl(user, events);
+        }
     }
 }
