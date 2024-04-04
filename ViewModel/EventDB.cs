@@ -68,7 +68,7 @@ namespace ViewModel
             command.Parameters.AddWithValue("@eventStart", events.EventStart);
             command.Parameters.AddWithValue("@eventEnd", events.EventEnd);
             command.Parameters.AddWithValue("@eventName", events.EventName);
-            command.Parameters.AddWithValue("@eventGroup", events.EventGroup);
+            command.Parameters.AddWithValue("@eventGroup", events.EventGroup.Id);
             command.Parameters.AddWithValue("@ID", events.Id);
         }
         
