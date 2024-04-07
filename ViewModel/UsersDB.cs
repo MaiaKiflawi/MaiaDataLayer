@@ -135,7 +135,7 @@ namespace ViewModel
             return ExecuteCRUD();
         }
 
-        public int DeleteUserToUGtbl(Users user, Groups group)
+        public int DeleteUserFromUGtbl(Users user, Groups group)
         {
             command.CommandText = $"DELETE FROM tblUsersGroups WHERE (tblUsersGroups.UserID = {user.Id}) AND (tblUsersGroups.GroupID = {group.Id})";
             return ExecuteCRUD();
@@ -147,7 +147,7 @@ namespace ViewModel
             return ExecuteCRUD();
         }
 
-        public int DeleteUserToUEtbl(Users user, Event events)
+        public int DeleteUserFromUEtbl(Users user, Event events)
         {
             command.CommandText = $"DELETE FROM tblUsersEvents WHERE (tblUsersEvents.UserID = {user.Id}) AND (tblUsersEvents.EventID = {events.Id})";
             return ExecuteCRUD();

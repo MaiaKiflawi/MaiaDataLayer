@@ -42,8 +42,8 @@ namespace ServiceModel
         [OperationContract] Users Login(Users user);
         [OperationContract] bool IsUsernameFree(string username);
         [OperationContract] int InsertUserToGroup(Users user, Groups group);
-        [OperationContract] int DeleteUserToGroup(Users user, Groups group);
+        [OperationContract] int DeleteUserFromGroup(Users user, Groups group);
         [OperationContract] int InsertUserToEvent(Users user, Event events);
-        [OperationContract] int DeleteUserToEvent(Users user, Event events);
+        [OperationContract] int DeleteUserFromEvent(Users user, Event events);
     }
 }

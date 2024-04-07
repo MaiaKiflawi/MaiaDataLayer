@@ -25,12 +25,48 @@ namespace ServiceModel
 
         public int DeleteGroup(Groups group)
         {
+            UsersList users;
+            EventList events = GetEventsByGroup(group);
+            //deletes all users who are supposed to attend all the groups events from tblUsersEvents in this group
+            foreach (Event item in events)
+            {
+                users = GetUsersByEvent(item);
+                foreach (Users user in users)
+                {
+                    DeleteUserFromEvent(user,item);
+                }
+                DeleteEvent(item);
+            }
+            users = GetUsersByGroup(group);
+            //deletes all users who are registered to group from tblUsersGroups in this group
+            foreach (Users user in users)
+            {
+                DeleteUserFromGroup(user, group);
+            }
             GroupsDB db = new GroupsDB();
             return db.Delete(group);
         }
 
         public int DeleteUser(Users user)
         {
+            Users manager = GetAllUsers().Find(u => u.IsManager); //finds app manager
+            EventList events=GetEventsByUser(user);
+            //deletes this user from all the events he is supposed to attend
+            //deletes this user from tblUserEvents
+            foreach (Event item in events)
+                DeleteUserFromEvent(user,item);
+            GroupsList groups=GetGroupsByUser(user);
+            //deletes this user from all the groups he is registered to 
+            //deletes this user from tblUserGroups
+            foreach (Groups group in groups)
+                DeleteUserFromGroup(user, group);
+            groups=new GroupsList(GetAllGroups().FindAll(g=>g.GroupAdmin.Id==user.Id).ToList()); 
+            //if this user was a group admin - this will make the app manager the new group admin for his groups
+            foreach (Groups group in groups)
+            {
+                group.GroupAdmin.Id = manager.Id;
+                UpdateGroup(group);
+            }
             UsersDB db = new UsersDB();
             return db.Delete(user);
         }
@@ -165,10 +201,10 @@ namespace ServiceModel
             return db.InsertUserToUGtbl(user, group);
         }
 
-        public int DeleteUserToGroup(Users user, Groups group)
+        public int DeleteUserFromGroup(Users user, Groups group)
         {
             UsersDB db = new UsersDB();
-            return db.DeleteUserToUGtbl(user, group);
+            return db.DeleteUserFromUGtbl(user, group);
         }
 
         public int InsertUserToEvent(Users user, Event events)
@@ -177,10 +213,10 @@ namespace ServiceModel
             return dB.InsertUserToUEtbl(user, events);
         }
 
-        public int DeleteUserToEvent(Users user, Event events)
+        public int DeleteUserFromEvent(Users user, Event events)
         {
             UsersDB dB = new UsersDB();
-            return dB.DeleteUserToUEtbl(user, events);
+            return dB.DeleteUserFromUEtbl(user, events);
         }
     }
 }
