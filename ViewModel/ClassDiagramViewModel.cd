@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ViewModel.BaseDB">
-    <Position X="8" Y="1.25" Width="1.5" />
+    <Position X="9" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAApAAAABAAAAAgQAAAAAAAAAAAASEAA=</HashCode>
       <FileName>BaseDB.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ViewModel.CityDB">
-    <Position X="5.75" Y="5" Width="1.5" />
+    <Position X="5.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
       <FileName>CityDB.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ViewModel.EventDB">
-    <Position X="8" Y="5" Width="1.5" />
+    <Position X="7.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAIAACEAA=</HashCode>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAEAAAIAACEAA=</HashCode>
       <FileName>EventDB.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ViewModel.GroupsDB">
-    <Position X="10" Y="5" Width="1.5" />
+    <Position X="10.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAIAACEAA=</HashCode>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEIAAAAAAAAIAACEAA=</HashCode>
       <FileName>GroupsDB.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ViewModel.UsersDB">
-    <Position X="12" Y="5" Width="1.5" />
+    <Position X="12.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAEAAACAAAAQCAAAAAAAAAgEAABAAEAAAAAACEAA=</HashCode>
+      <HashCode>AAQAIEQAACAAAAQCAAAAAAAAAgEAEBAAEAAAgAACEAA=</HashCode>
       <FileName>UsersDB.cs</FileName>
     </TypeIdentifier>
   </Class>

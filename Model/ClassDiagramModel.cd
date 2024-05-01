@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Model.BaseEntity">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>BaseEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.City">
-    <Position X="5.5" Y="2.5" Width="1.5" />
+    <Position X="4.25" Y="2.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -18,14 +18,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Model.CityList">
-    <Position X="5.5" Y="1" Width="1.5" />
+    <Position X="4.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>City.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.Event">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Position X="6.25" Y="2.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -35,31 +35,31 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Model.EventList">
-    <Position X="7.5" Y="4.75" Width="1.5" />
+    <Position X="6.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Event.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.Groups">
-    <Position X="9.75" Y="2.5" Width="1.5" />
+    <Position X="10.5" Y="2.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>IAAAASAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>IAAAASAAAAAAAAAAAAAAQACAAEAAgAAAAAAAAAAAAAE=</HashCode>
       <FileName>Groups.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.GroupsList">
-    <Position X="9.75" Y="1" Width="1.5" />
+    <Position X="10.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Groups.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.Users">
-    <Position X="12" Y="2.5" Width="1.5" />
+    <Position X="12.5" Y="2.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -69,7 +69,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Model.UsersList">
-    <Position X="12" Y="1" Width="1.5" />
+    <Position X="12.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Users.cs</FileName>
