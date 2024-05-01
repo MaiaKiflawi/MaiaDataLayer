@@ -20,8 +20,8 @@ namespace ViewModel
         {
             Event events = entity as Event;
             events.Id = int.Parse(reader["ID"].ToString());
-            events.EventEnd = DateTime.Parse(reader["eventStart"].ToString());
-            events.EventStart = DateTime.Parse(reader["eventEnd"].ToString());
+            events.EventStart = DateTime.Parse(reader["eventStart"].ToString());
+            events.EventEnd = DateTime.Parse(reader["eventEnd"].ToString());
             events.EventName = reader["eventName"].ToString();
             GroupsDB groupDB = new GroupsDB();
             int groupId = int.Parse(reader["eventGroup"].ToString());
@@ -90,8 +90,7 @@ namespace ViewModel
         }
         public int Delete(Event events)
         {
-            command.CommandText = "DELETE FROM tblEvent WHERE ID = @ID";
-            LoadParameters(events);
+            command.CommandText = $"DELETE FROM tblEvent WHERE ID = {events.Id}";
             return ExecuteCRUD();
         }
     }

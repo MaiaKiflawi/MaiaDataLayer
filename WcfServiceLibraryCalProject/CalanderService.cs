@@ -19,6 +19,12 @@ namespace ServiceModel
 
         public int DeleteEvent(Event events)
         {
+            //deletes all users who are supposed to attend this event from tblUsersEvents
+            UsersList users = GetUsersByEvent(events);
+            foreach (Users user in users)
+            {
+                DeleteUserFromEvent(user, events);
+            }
             EventDB db = new EventDB();
             return db.Delete(events);
         }

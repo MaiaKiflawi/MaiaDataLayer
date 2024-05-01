@@ -86,8 +86,7 @@ namespace ViewModel
         }
         public int Delete(Groups group)
         {
-            command.CommandText = "DELETE FROM tblGroups WHERE ID = @ID";
-            LoadParameters(group);
+            command.CommandText = $"DELETE FROM tblGroups WHERE ID = {group.Id}";
             return ExecuteCRUD();
         }
     }

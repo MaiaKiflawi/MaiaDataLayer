@@ -108,8 +108,7 @@ namespace ViewModel
         }
         public int Delete(Users user)
         {
-            command.CommandText = "DELETE FROM tblUsers WHERE ID = @ID";
-            LoadParameters(user);
+            command.CommandText = $"DELETE FROM tblUsers WHERE ID = {user.Id}";
             return ExecuteCRUD();
         }
 
