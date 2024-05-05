@@ -66,5 +66,7 @@ namespace ViewModel
             LoadParameters(city);
             return ExecuteCRUD();
         }
+
+        
     }
 }

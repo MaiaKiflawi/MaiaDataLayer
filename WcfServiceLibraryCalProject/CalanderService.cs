@@ -224,5 +224,9 @@ namespace ServiceModel
             UsersDB dB = new UsersDB();
             return dB.DeleteUserFromUEtbl(user, events);
         }
+        //public void UpdateCitiesFromExternalData()
+        //{
+
+        //}
     }
 }
