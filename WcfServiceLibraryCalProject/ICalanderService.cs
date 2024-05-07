@@ -18,7 +18,7 @@ namespace ServiceModel
         [OperationContract] int InsertCity(City city);
         [OperationContract] int UpdateCity(City city);
         [OperationContract] int DeleteCity(City city);
-        //[OperationContract] void UpdateCitiesFromExternalData();
+        [OperationContract] void UpdateCitiesFromExternalData();
 
         [OperationContract] EventList GetAllEvents();
         [OperationContract] int InsertEvent(Event events);

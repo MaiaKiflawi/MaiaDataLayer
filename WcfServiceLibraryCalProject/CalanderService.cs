@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Model;
+using Newtonsoft.Json.Linq;
 using ViewModel;
 
 namespace ServiceModel
@@ -224,9 +227,49 @@ namespace ServiceModel
             UsersDB dB = new UsersDB();
             return dB.DeleteUserFromUEtbl(user, events);
         }
-        //public void UpdateCitiesFromExternalData()
-        //{
+        public void UpdateCitiesFromExternalData()
+        {
+            string apiUrl = "https://data.gov.il/api/3/action/datastore_search?resource_id=8f714b6f-c35c-4b40-a0e7-547b675eee0e";
+            List<string> dataList = new List<string>();
 
-        //}
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(apiUrl).Result;
+                    response.EnsureSuccessStatusCode();
+
+                    string responseBody = response.Content.ReadAsStringAsync().Result;
+                    JObject json = JObject.Parse(responseBody);
+                    JArray records = (JArray)json["result"]["records"];
+
+                    foreach (var record in records)
+                    {
+                        string city_name_en = record["city_name_en"].ToString();
+                        dataList.Add(city_name_en);
+                    }
+
+                }
+                catch (HttpRequestException e)
+                {
+                    Console.WriteLine($"HTTP Error: {e.Message}");
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    return;
+                }
+            }
+            CityList myCities = GetAllCities();
+            foreach (string cityname in dataList)
+            {
+                if (myCities.Find(c => c.CityName.ToLower().Equals(cityname)) == null)
+                {
+                    InsertCity(new City { CityName = cityname });
+                }
+            }
+
+        }
     }
 }
