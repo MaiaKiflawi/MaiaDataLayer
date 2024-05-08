@@ -227,6 +227,7 @@ namespace ServiceModel
             UsersDB dB = new UsersDB();
             return dB.DeleteUserFromUEtbl(user, events);
         }
+
         public void UpdateCitiesFromExternalData()
         {
             string apiUrl = "https://data.gov.il/api/3/action/datastore_search?resource_id=8f714b6f-c35c-4b40-a0e7-547b675eee0e";
@@ -245,8 +246,9 @@ namespace ServiceModel
 
                     foreach (var record in records)
                     {
-                        string city_name_en = record["city_name_en"].ToString();
-                        dataList.Add(city_name_en);
+                        string city_name_en = record["city_name_en"].ToString().Trim();
+                        if(city_name_en!="")
+                            dataList.Add(city_name_en);
                     }
 
                 }

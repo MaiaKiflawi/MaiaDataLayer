@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ViewModel
 {
@@ -50,13 +52,13 @@ namespace ViewModel
 
         public int Insert(City city)
         {
-            command.CommandText = "INSERT INTO tblCity (cityName,countryName) VALUES (@cityName,@countryName)";
+            command.CommandText = "INSERT INTO tblCity (cityName) VALUES (@cityName)";
             LoadParameters(city);
             return ExecuteCRUD();
         }
         public int Update(City city)
         {
-            command.CommandText = "UPDATE tblCity SET cityName = @cityName, countryName = @countryName WHERE ID = @ID";
+            command.CommandText = "UPDATE tblCity SET cityName = @cityName WHERE ID = @ID";
             LoadParameters(city);
             return ExecuteCRUD();
         }
@@ -66,7 +68,5 @@ namespace ViewModel
             LoadParameters(city);
             return ExecuteCRUD();
         }
-
-        
     }
 }

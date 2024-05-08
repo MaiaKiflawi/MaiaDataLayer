@@ -100,8 +100,9 @@ namespace ViewModel
         public int Update(Users user)
         {
             command.CommandText = "UPDATE tblUsers SET " +
-                "userName = @userName, [password] = @password, firstName = @firstName, lastName = @lastName, " +
-                "gender = @gender, phone = @phone, email = @email, cityName = @cityName " +
+                "userName = @userName, firstName = @firstName, lastName = @lastName, bDate = @bDate, " +
+                "gender = @gender, phone = @phone, email = @email, isManager = @isManager, cityName = @cityName, " +
+                "isGroupAdmin = @isGroupAdmin, [password] = @password " +
                 "WHERE ID = @ID";
             LoadParameters(user);
             return ExecuteCRUD();
