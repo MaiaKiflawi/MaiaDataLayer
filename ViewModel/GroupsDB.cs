@@ -89,5 +89,6 @@ namespace ViewModel
             command.CommandText = $"DELETE FROM tblGroups WHERE ID = {group.Id}";
             return ExecuteCRUD();
         }
+
     }
 }

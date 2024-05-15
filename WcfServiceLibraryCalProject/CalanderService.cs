@@ -135,7 +135,12 @@ namespace ServiceModel
             UsersList list = db.SelectByGroup(group);
             return list;
         }
-
+        public Groups GetGroupByID(int id)
+        {
+            GroupsDB db = new GroupsDB();
+            Groups list = db.SelectById(id);
+            return list;
+        }
         public int InsertCity(City city)
         {
             CityDB db = new CityDB();
@@ -151,8 +156,8 @@ namespace ServiceModel
         public int InsertGroup(Groups group)
         {
             GroupsDB db = new GroupsDB();
-            db.Insert(group);
-            return GetAllGroups().Find(g=>g.GroupName.Equals(group.GroupName)).Id; 
+            return db.Insert(group);
+            //return GetAllGroups().Find(g=>g.GroupName.Equals(group.GroupName)).Id; 
         }
 
         public int InsertUser(Users user)
@@ -204,6 +209,12 @@ namespace ServiceModel
             Groups group = db.IsGroupName(groupName);
             return group==null;
         }
+        public Groups GetGroupByGroupName(string groupName)
+        {
+            GroupsDB db = new GroupsDB();
+            Groups group = db.IsGroupName(groupName);
+            return group;
+        }
 
         public int InsertUserToGroup(Users user, Groups group)
         {
@@ -228,6 +239,7 @@ namespace ServiceModel
             UsersDB dB = new UsersDB();
             return dB.DeleteUserFromUEtbl(user, events);
         }
+
 
         public void UpdateCitiesFromExternalData()
         {

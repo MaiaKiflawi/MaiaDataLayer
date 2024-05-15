@@ -33,6 +33,8 @@ namespace ServiceModel
         [OperationContract] int DeleteGroup(Groups group);
         [OperationContract] GroupsList GetGroupsByUser(Users user);
         [OperationContract] bool IsGroupNameFree(string groupName);
+        [OperationContract] Groups GetGroupByID(int Id);
+        [OperationContract] Groups GetGroupByGroupName(string groupName);
 
         [OperationContract] UsersList GetAllUsers();
         [OperationContract] int InsertUser(Users user);
