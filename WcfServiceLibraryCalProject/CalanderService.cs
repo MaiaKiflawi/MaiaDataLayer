@@ -151,7 +151,8 @@ namespace ServiceModel
         public int InsertGroup(Groups group)
         {
             GroupsDB db = new GroupsDB();
-            return db.Insert(group);
+            db.Insert(group);
+            return GetAllGroups().Find(g=>g.GroupName.Equals(group.GroupName)).Id; 
         }
 
         public int InsertUser(Users user)
