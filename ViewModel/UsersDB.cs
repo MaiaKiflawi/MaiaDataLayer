@@ -129,11 +129,11 @@ namespace ViewModel
             return list;
         }
 
-        //public int InsertUserToUGtbl(Users user, Groups group)
-        //{
-        //    command.CommandText = $"INSERT INTO tblUsersGroups (UserID, GroupID) VALUES ({user.Id},{group.Id})";
-        //    return ExecuteCRUD();
-        //}
+        public int InsertUserToUGtbl(Users user, Groups group)
+        {
+            command.CommandText = $"INSERT INTO tblUsersGroups (UserID, GroupID) VALUES ({user.Id},{group.Id})";
+            return ExecuteCRUD();
+        }
 
         public int DeleteUserFromUGtbl(Users user, Groups group)
         {
