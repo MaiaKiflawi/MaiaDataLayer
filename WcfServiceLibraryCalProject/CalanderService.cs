@@ -202,6 +202,13 @@ namespace ServiceModel
             return list.Count == 0;
         }
 
+        public bool IsUserNameID(Users user)
+        {
+            UsersDB db = new UsersDB();
+            UsersList list = db.CheckUserNameID(user);
+            return list.Count == 0;
+        }
+
         public bool IsGroupNameFree(string groupName)
         {
             GroupsDB db = new GroupsDB();

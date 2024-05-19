@@ -129,6 +129,21 @@ namespace ViewModel
             return list;
         }
 
+        public UsersList CheckUserNameID(Users users)
+        {
+            string userName = users.UserName;
+            command.CommandText = $"SELECT * FROM tblUsers WHERE (userName = '{userName}')";
+            UsersList list = new UsersList(base.ExecuteCommand());
+            foreach (Users user in list)
+            {
+                if (user.Id == users.Id)
+                {
+                    list.Remove(user);
+                }
+            }
+            return list;
+        }
+
         public int InsertUserToUGtbl(Users user, Groups group)
         {
             command.CommandText = $"INSERT INTO tblUsersGroups (UserID, GroupID) VALUES ({user.Id},{group.Id})";

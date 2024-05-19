@@ -48,5 +48,6 @@ namespace ServiceModel
         [OperationContract] int DeleteUserFromGroup(Users user, Groups group);
         [OperationContract] int InsertUserToEvent(Users user, Event events);
         [OperationContract] int DeleteUserFromEvent(Users user, Event events);
+        [OperationContract] bool IsUserNameID(Users user);
     }
 }
