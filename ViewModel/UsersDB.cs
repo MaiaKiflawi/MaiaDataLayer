@@ -134,13 +134,7 @@ namespace ViewModel
             string userName = users.UserName;
             command.CommandText = $"SELECT * FROM tblUsers WHERE (userName = '{userName}')";
             UsersList list = new UsersList(base.ExecuteCommand());
-            foreach (Users user in list)
-            {
-                if (user.Id == users.Id)
-                {
-                    list.Remove(user);
-                }
-            }
+            list.RemoveAll(user => user.Id == users.Id);
             return list;
         }
 
