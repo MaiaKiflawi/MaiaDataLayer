@@ -26,6 +26,7 @@ namespace ServiceModel
         [OperationContract] int DeleteEvent(Event events);
         [OperationContract] EventList GetEventsByUser(Users user);
         [OperationContract] EventList GetEventsByGroup(Groups group);
+        [OperationContract] bool IsEventNameFree(string eventName);
 
         [OperationContract] GroupsList GetAllGroups();
         [OperationContract] int InsertGroup(Groups group);

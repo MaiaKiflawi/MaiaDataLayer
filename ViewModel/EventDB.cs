@@ -93,5 +93,11 @@ namespace ViewModel
             command.CommandText = $"DELETE FROM tblEvent WHERE ID = {events.Id}";
             return ExecuteCRUD();
         }
+        public EventList CheckEventName(string eventName)
+        {
+            command.CommandText = $"SELECT * FROM tblEvent WHERE (eventName = '{eventName}')";
+            EventList list = new EventList(base.ExecuteCommand());
+            return list;
+        }
     }
 }

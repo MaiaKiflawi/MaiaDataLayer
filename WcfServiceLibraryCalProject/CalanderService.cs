@@ -215,6 +215,14 @@ namespace ServiceModel
             Groups group = db.IsGroupName(groupName);
             return group==null;
         }
+
+        public bool IsEventNameFree(string eventName)
+        {
+            EventDB eventDB = new EventDB();
+            EventList list = eventDB.CheckEventName(eventName);
+            return list.Count == 0;
+        }
+
         public Groups GetGroupByGroupName(string groupName)
         {
             GroupsDB db = new GroupsDB();
