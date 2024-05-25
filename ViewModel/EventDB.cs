@@ -83,8 +83,8 @@ namespace ViewModel
         public int Update(Event events)
         {
             command.CommandText = "UPDATE tblEvent SET " +
-                "eventStart = @eventStart, eventEnd = @eventEnd, eventName = @eventName" +
-                "WHERE ID = @ID";
+                "eventStart = @eventStart, eventEnd = @eventEnd, eventName = @eventName, eventGroup = @eventGroup" +
+                " WHERE ID = @ID";
             LoadParameters(events);
             return ExecuteCRUD();
         }
