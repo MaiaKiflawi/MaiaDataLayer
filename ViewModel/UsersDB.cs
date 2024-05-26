@@ -1,11 +1,5 @@
 ﻿using Model;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Model.Event;
 
 namespace ViewModel
 {
