@@ -138,7 +138,7 @@ namespace ViewModel
             return ExecuteCRUD();
         }
 
-        public int DeleteUserFromUGtbl(Users user, Groups group)
+        public int DeleteUserFromUGtbl(Users user, Groups group) //מחיקה מטבלה מקשרת
         {
             command.CommandText = $"DELETE FROM tblUsersGroups WHERE (tblUsersGroups.UserID = {user.Id}) AND (tblUsersGroups.GroupID = {group.Id})";
             return ExecuteCRUD();
