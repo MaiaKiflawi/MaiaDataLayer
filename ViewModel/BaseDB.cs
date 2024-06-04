@@ -17,7 +17,7 @@ namespace ViewModel
 
         protected abstract void LoadParameters(BaseEntity entity);
 
-        public int ExecuteCRUD() //עבודה וניהול התקשורת מול המסד
+        public int ExecuteCRUD() 
         {
             int records = 0;
             try
